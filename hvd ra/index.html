@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Selamat Ulang Tahun,Raa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; /* dark navy */
+      --card:#c766af;
+      --accent:#ff6b9a;
+      --muted:#9aa6b2;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    body{background:linear-gradient(180deg,var(--bg),#071021);color:#e6f0f6;display:flex;align-items:center;justify-content:center;padding:28px}
+    .card{width:100%;max-width:900px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:18px;box-shadow:0 10px 30px rgba(2,6,23,0.6);overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:0}
+    .left, .right{padding:28px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .left{background:linear-gradient(135deg, rgba(255,107,154,0.06), rgba(255,255,255,0.01));}
+    .photo{width:100%;height:320px;border-radius:12px;background-size:cover;background-position:center;box-shadow:inset 0 0 30px rgba(0,0,0,0.35);}
+    .small{height:180px;margin-top:18px}
+    h1{margin:12px 0 6px;font-size:28px;letter-spacing:0.4px}
+    p.lead{margin:0;color:var(--muted);text-align:center}
+    .right{gap:12px;padding:44px}
+    .message{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:22px;border-radius:12px;min-height:220px;display:flex;flex-direction:column;justify-content:center}
+    .message p{font-size:18px;line-height:1.5;margin:0}
+    .signature{margin-top:16px;text-align:right;font-weight:600;color:var(--accent)}
+    .actions{display:flex;gap:10px;margin-top:18px;justify-content:center}
+    .btn{background:linear-gradient(90deg,var(--accent),#ff8fb0);border:none;padding:10px 14px;border-radius:10px;color:#061122;font-weight:600;cursor:pointer}
+    .heart{font-size:26px;position:fixed;animation:floatUp 3s linear forwards}
+
+    @keyframes floatUp{
+      0%{transform:translateY(0) scale(1);opacity:1}
+      100%{transform:translateY(-400px) scale(1.6);opacity:0}
+    }
+
+    /* responsive */
+    @media(max-width:720px){
+      .card{grid-template-columns:1fr;max-width:420px}
+      .photo{height:260px}
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="left">
+      <!-- Ganti 'photo1.jpg' dan 'photo2.jpg' dengan file foto pacarmu (letakkan di folder yang sama dengan file .html) -->
+      <div id="photoA" class="photo" style="background-image:url('photo1.jpg')"></div>
+      <div id="photoB" class="photo small" style="background-image:url('photo2.jpg')"></div>
+      <h1>Selamat Ulang Tahun, Raa</h1>
+      <p class="lead">Semoga semua mimpi nya tercapai ya Raa</p>
+    </div>
+
+    <div class="right">
+      <div class="message" id="messageBox">
+        <p id="messageText">Hei , selamat ulang tahun yaa Raa!
+     Semoga harimu penuh hal-hal indah kayak senyum kau yang selalu bikin dunia jadi lebih cerah.
+     Aku nggak jago kata-kata, tapi aku jago soal nyimpan rasa hehe.
+     Semoga tahun ini bawa banyak kebahagiaan, mimpi yang tercapai, dan momen seru bareng orang-orang yang kau sayang (termasuk aku… kalau boleh hehe).</p>
+        <div class="signature" id="signature">— Tian</div>
+      </div>
+
+      <div class="actions">
+        <button class="btn" onclick="toggleConfetti()">Tekan Raa 🎉</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleConfetti(){
+      for(let i=0;i<20;i++){
+        const heart=document.createElement('div');
+        heart.className='heart';
+        heart.innerText='💖';
+        heart.style.left=Math.random()*100+'vw';
+        heart.style.top='100%';
+        heart.style.fontSize=(20+Math.random()*20)+'px';
+        heart.style.color='hsl('+Math.random()*360+',80%,70%)';
+        document.body.appendChild(heart);
+        setTimeout(()=>{heart.remove()},3000);
+      }
+    }
+  </script>
+</body>
+</html>
